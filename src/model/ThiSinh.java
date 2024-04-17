@@ -1,5 +1,8 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ThiSinh {
@@ -149,6 +152,18 @@ public class ThiSinh {
 		return true;
 	}
 	
-	
+//	hàm để chuyển đổi khi nhập định dang dd/MM/yyyy sang Date
+	public static Date inputNgaySinh(String input) {
+		DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date ngaySinh = new Date();
+		try {
+//			parse chuyển String thành Date
+			ngaySinh = sourceFormat.parse(input);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return ngaySinh;
+	}
 	
 }
